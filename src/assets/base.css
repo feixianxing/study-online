@@ -1,4 +1,11 @@
 /* 这个文件进行常用CSS常量的配置 */
-/* :root {
-  
-} */
+:root {
+    --page-background: #e5edf8;
+    --main-blue: #0384bd;
+    --main-yellow: #edb47a;
+    --main-red: #e29e93;
+    --font-color: #606266;
+    --font-secondary-color: #909399;
+    --border-color: #DCDFE6;
+    --shadow-color: #dfdfdf;
+}
