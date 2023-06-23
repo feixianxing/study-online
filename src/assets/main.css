@@ -1,0 +1,9 @@
+@import './base.css';
+
+/* 这个文件用于常用类选择器的配置 */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
