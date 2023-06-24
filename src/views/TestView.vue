@@ -7,6 +7,8 @@
         </div>
         <div>
             test
+            <!-- 测试 pull / fetch + merge -->
+            测试 pull / fetch + merge
         </div>
     </div>
 </template>
