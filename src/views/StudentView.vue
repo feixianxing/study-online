@@ -3,17 +3,26 @@
         <div class="aside">
             <div class="logo"></div>
             <div class="route-btn-list">
-                <div class="route-btn" :class="route.name==='lesson'?'active':''">
-                    <el-icon :size="24" color="#edb47a"><Management /></el-icon>
+                <div class="route-btn" :class="route.name==='lesson'?'active':''"
+                    @click="changeRoute('lesson')">
+                    <el-tooltip content="我的课程" placement="right">
+                        <el-icon :size="24" color="#edb47a"><Management /></el-icon>
+                    </el-tooltip>
                 </div>
-                <div class="route-btn" :class="route.name==='my'?'active':''">
-                    <el-icon :size="24" color="#edb47a"><Avatar /></el-icon>
+                <div class="route-btn" :class="route.name==='my'?'active':''"
+                    @click="changeRoute('my')">
+                    <el-tooltip content="个人信息" placement="right">
+                        <el-icon :size="24" color="#edb47a"><Avatar /></el-icon>
+                    </el-tooltip>
                 </div>
             </div>
         </div>
         <div class="main">
             <div class="header">
-
+                <p class="username">用户: {{ name }}</p>
+                <el-tooltip content="退出登录">
+                    <el-icon @click="logout" size="32" color="#555555"><SwitchButton /></el-icon>
+                </el-tooltip>
             </div>
             <div class="sub-page-container">
                 <router-view/>
@@ -28,6 +37,20 @@ import { useRoute, useRouter } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
+
+const name = ref('李华')
+
+const changeRoute = (routeName)=>{
+    router.push({
+        name: routeName
+    })
+}
+
+const logout = ()=>{
+    router.replace({
+        name: 'login'
+    })
+}
 
 </script>
 
@@ -68,7 +91,7 @@ const route = useRoute()
                 justify-content: center;
 
                 &.active{
-                    background-color: var(--main-yellow);
+                    background-color: #F5F7FA;
                 }
             }
         }
@@ -83,9 +106,22 @@ const route = useRoute()
             height: var(--header-height);
             background-color: #fff;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 20px 2em;
+            gap: 2em;
+            .username{
+                font-size: 16px;
+                letter-spacing: 0.1em;
+                font-weight: bold;
+            }
+            .el-icon{
+                cursor: pointer;
+            }
         }
         .sub-page-container{
-            padding: 1em;
+            padding: 20px;
         }
     }
 }

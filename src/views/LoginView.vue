@@ -78,7 +78,7 @@
                     <div class="tip-row">
                         <p class="tips" @click="changeMode(true)">没有账号？点击注册</p>
                     </div>
-                    <div class="submit-btn">登录</div>
+                    <div class="submit-btn" @click="loginHandler">登录</div>
                 </div>
             </div>
         </div>
@@ -87,6 +87,9 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 // 记录(登录/注册) true: 注册, false: 登录
 const mode = ref(false)
@@ -118,6 +121,13 @@ const changeIdentity = (status)=>{
     console.log(status);
     registerForm.isTeacher = status
 }
+
+const loginHandler = ()=>{
+    router.replace({
+        name: 'student'
+    })
+}
+
 
 </script>
 

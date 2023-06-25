@@ -43,16 +43,22 @@ const router = createRouter({
           path: 'student',
           name: 'student',
           component: () => import('../views/StudentView.vue'),
+          redirect: {name: 'lesson'},
           children: [
             {
               path: 'lesson',
               name: 'lesson',
-              component: ()=>import('../components/student/LessonMain.vue')
+              component: ()=>import('../components/student/LessonMain.vue'),
             },
             {
               path: 'my',
               name: 'my',
               component: ()=>import('../components/student/MyMain.vue')
+            },
+            {
+              path: 'lesson-detail/:lessonCode',
+              name: 'lessonDetail',
+              component: ()=>import('../components/student/LessonDetail.vue')
             }
           ]
         }
