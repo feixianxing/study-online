@@ -23,7 +23,7 @@
                 <el-input v-model="input" placeholder="搜索课程" :suffix-icon="Search" />
             </div>
             <div class="course-teach">
-                <div v-for="item in courseList" class="course">
+                <div v-for="item in courseList" class="course" @click="changeRoute('/home/teacher/courseDetail')">
                     <div class="course-header">
                         <div>
                             <div>{{ item.name }}</div>
@@ -54,77 +54,97 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router';
+import { Search } from '@element-plus/icons-vue'
+const router = useRouter();
+function changeRoute(route) {
+    router.push(route)
+}
 const input = ref('')
 const courseList = reactive([
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 1,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
     {
         name: '数据库系统概率',
         teacher: '郝鹃',
-        class: '软件工程2102',
+        class: '2023年春-软件工程2102',
+        cid: 2,
     },
 ])
 </script>
@@ -132,6 +152,7 @@ const courseList = reactive([
 <style lang="scss" scoped>
 .course-container {
     background-color: #fff;
+    border-radius: 10px;
 
     .course-main {
         padding: 20px 40px;

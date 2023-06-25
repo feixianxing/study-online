@@ -24,10 +24,6 @@ const asideList = reactive([
         name: '课程管理',
         route: '/course',
     },
-    {
-        name: '目录',
-        route: '/directory',
-    },
 ])
 const flag = ref(0)
 //切换子页面
