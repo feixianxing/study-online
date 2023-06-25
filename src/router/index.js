@@ -20,7 +20,24 @@ const router = createRouter({
         {
           path: 'teacher',
           name: 'teacher',
-          component: () => import('../views/TeacherView.vue')
+          component: () => import('../views/TeacherView.vue'),
+          children: [
+            {
+              path: 'userSetting',
+              name: 'userSetting',
+              component: () => import('../components/teacher/UserSetting.vue')
+            },
+            {
+              path: 'course',
+              name: 'course',
+              component: () => import('../components/teacher/CourseView.vue'),
+            },
+            {
+              path: 'directory',
+              name: 'directory',
+              component: () => import('../components/teacher/DirectoryView.vue')
+            }
+          ]
         },
         {
           path: 'student',
