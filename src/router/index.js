@@ -25,19 +25,21 @@ const router = createRouter({
         {
           path: 'student',
           name: 'student',
-          component: () => import('../views/StudentView.vue')
+          component: () => import('../views/StudentView.vue'),
+          children: [
+            {
+              path: 'lesson',
+              name: 'lesson',
+              component: ()=>import('../components/student/LessonMain.vue')
+            },
+            {
+              path: 'my',
+              name: 'my',
+              component: ()=>import('../components/student/MyMain.vue')
+            }
+          ]
         }
       ]
-    },
-    {
-      path: '/teacher',
-      name: 'teacher',
-      component: () => import('../views/TeacherView.vue'),
-    },
-    {
-      path: '/student',
-      name: 'student',
-      component: () => import('../views/StudentView.vue'),
     }
   ]
 })
