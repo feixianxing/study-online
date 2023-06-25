@@ -30,6 +30,21 @@
                             :show-password="true"
                         />
                     </div>
+                    <div class="form-item">
+                        <p class="label">身份</p>
+                        <div class="btn-group">
+                            <div class="btn" 
+                                :class="!registerForm.isTeacher?'active':''"
+                                @click="changeIdentity(false)">
+                                学生
+                            </div>
+                            <div class="btn" 
+                                :class="registerForm.isTeacher?'active':''"
+                                @click="changeIdentity(true)">
+                                教师
+                            </div>
+                        </div>
+                    </div>
                     <div class="tip-row">
                         <p class="tips" @click="changeMode(false)">已有账号？点击登录</p>
                     </div>
@@ -63,7 +78,7 @@
                     <div class="tip-row">
                         <p class="tips" @click="changeMode(true)">没有账号？点击注册</p>
                     </div>
-                    <div class="submit-btn">登录</div>
+                    <div class="submit-btn" @click="loginHandler">登录</div>
                 </div>
             </div>
         </div>
@@ -72,6 +87,9 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 // 记录(登录/注册) true: 注册, false: 登录
 const mode = ref(false)
@@ -95,8 +113,21 @@ const loginForm = reactive({
 })
 const registerForm = reactive({
     email: '',
-    password: ''
+    password: '',
+    isTeacher: false
 })
+
+const changeIdentity = (status)=>{
+    console.log(status);
+    registerForm.isTeacher = status
+}
+
+const loginHandler = ()=>{
+    router.replace({
+        name: 'student'
+    })
+}
+
 
 </script>
 
@@ -169,6 +200,36 @@ const registerForm = reactive({
                         font-weight: bold;
                         letter-spacing: 0.08em;
                         user-select: none;
+                    }
+                    .btn-group{
+                        flex: 1;
+                        padding: 0 1em;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 1em;
+                        .btn{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 8px 20px;
+                            font-size: 16px;
+                            font-weight: normal;
+                            letter-spacing: 0.08em;
+                            color: #666666;
+                            background-color: var(--border-color);
+                            border-radius: 99px;
+                            user-select: none;
+                            cursor: pointer;
+                            transition: all ease 0.3s;
+                            &:hover{
+                                box-shadow: 0 0 4px var(--shadow-color);
+                            }
+                            &.active{
+                                color: #fff;
+                                background-color: var(--main-blue);
+                            }
+                        }
                     }
                     .el-input{
                         flex: 1;
