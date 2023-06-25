@@ -33,7 +33,35 @@ const lessonList = reactive([
     {
         name: '数据库',
         lessonCode: 1
-    }
+    },
+    {
+        name: "计算机网络",
+        lessonCode: 2
+    },
+    {
+        name: "数据结构",
+        lessonCode: 3
+    },
+    {
+        name: "电子电路",
+        lessonCode: 4
+    },
+    {
+        name: "人工智能导论",
+        lessonCode: 5
+    },
+    {
+        name: "离散数学",
+        lessonCode: 6
+    },
+    {
+        name: "非关系型数据库",
+        lessonCode: 7
+    },
+    {
+        name: "数据挖掘",
+        lessonCode: 8
+    },
 ])
 const getLessonList = ()=>{
 

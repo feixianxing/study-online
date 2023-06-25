@@ -6,7 +6,7 @@
                 <Avatar />
             </el-icon>
             用户名:1111
-            <el-icon size="25" class="icon">
+            <el-icon size="25" class="icon" @click="logout">
                 <SwitchButton />
             </el-icon>
         </div>
@@ -14,6 +14,15 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const logout = ()=>{
+    router.push({
+        name: 'login'
+    })
+}
 
 </script>
 

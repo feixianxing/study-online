@@ -18,12 +18,12 @@ const props = defineProps({
     width: 240px;
     height: 180px;
     border-radius: 8px;
-    background-color: #71afe5;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform ease 0.3s;
     user-select: none;
+    background-color: #1e88e5;
     cursor: pointer;
     .name{
         font-weight: bold;

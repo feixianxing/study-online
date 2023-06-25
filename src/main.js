@@ -12,6 +12,8 @@ const app = createApp(App)
 for(const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
+// 引入需要的CSS
+import "element-plus/theme-chalk/el-message.css";
 
 app.use(router)
 

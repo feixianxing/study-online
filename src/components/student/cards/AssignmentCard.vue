@@ -28,5 +28,8 @@ const props = defineProps({
     .title{
         margin-bottom: 8px;
     }
+    .content{
+        color: var(--font-secondary-color);
+    }
 }
 </style>

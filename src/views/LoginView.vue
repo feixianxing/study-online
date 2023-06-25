@@ -88,6 +88,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus';
 
 const router = useRouter()
 
@@ -118,14 +119,24 @@ const registerForm = reactive({
 })
 
 const changeIdentity = (status)=>{
-    console.log(status);
     registerForm.isTeacher = status
 }
 
 const loginHandler = ()=>{
-    router.replace({
-        name: 'student'
-    })
+    if(loginForm.email==='123456@qq.com' && loginForm.password!==""){
+        router.replace({
+            name: 'student'
+        })
+    }else if(loginForm.email==='12345678@qq.com' && loginForm.password!==""){
+        router.replace({
+            name: 'teacher'
+        })
+    }else{
+        ElMessage({
+            type: 'error',
+            message: '信息填写错误'
+        })
+    }
 }
 
 
